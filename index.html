@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vasilopita NFT Generator</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        #app { max-width: 500px; margin: auto; padding: 20px; border: 1px solid #ccc; }
+        h1 { text-align: center; }
+        label { display: block; margin-top: 10px; }
+        input, textarea { width: 100%; padding: 8px; margin-top: 5px; }
+        button { margin-top: 15px; padding: 10px; background-color: #4CAF50; color: white; border: none; cursor: pointer; }
+        #output { margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <h1>Vasilopita NFT Generator</h1>
+        <label for="name">Name</label>
+        <input type="text" id="name" placeholder="Enter the name of the Vasilopita">
+
+        <label for="description">Description</label>
+        <textarea id="description" placeholder="Enter a description of the Vasilopita"></textarea>
+
+        <label for="imageURL">Image URL</label>
+        <input type="text" id="imageURL" placeholder="Enter the image URL of the Vasilopita">
+
+        <button id="generateButton">Generate NFT</button>
+
+        <div id="output"></div>
+    </div>
+
+    <script>
+        const nameInput = document.getElementById('name');
+        const descriptionInput = document.getElementById('description');
+        const imageURLInput = document.getElementById('imageURL');
+        const generateButton = document.getElementById('generateButton');
+        const output = document.getElementById('output');
+
+        generateButton.addEventListener('click', () => {
+            const name = nameInput.value;
+            const description = descriptionInput.value;
+            const imageURL = imageURLInput.value;
+
+            const nftMetadata = {
+                Name: name,
+                Description: description,
+                Image: imageURL
+            };
+
+            output.textContent = JSON.stringify(nftMetadata, null, 2);
+        });
+    </script>
+</body>
+</html>
